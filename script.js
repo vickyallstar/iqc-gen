@@ -9,21 +9,26 @@ function generate() {
 
   const img = document.getElementById("result");
   const loading = document.getElementById("loading");
+  const downloadBtn = document.getElementById("downloadBtn");
 
-  // Reset
+  // Reset tampilan
   img.style.display = "none";
+  downloadBtn.style.display = "none";
   loading.style.display = "block";
 
-  // Kasih delay dikit biar spinner sempet keliatan
   setTimeout(() => {
     img.onload = () => {
       loading.style.display = "none";
       img.style.display = "block";
+
+      // set link download
+      downloadBtn.href = img.src;
+      downloadBtn.style.display = "inline-block";
     };
     img.onerror = () => {
       loading.style.display = "none";
       alert("Gagal load gambar 😢");
     };
-    img.src = url + "&t=" + Date.now(); // tambah timestamp biar anti-cache
+    img.src = url + "&t=" + Date.now(); // anti-cache
   }, 500);
 }

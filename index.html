@@ -2,28 +2,42 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IQC Maker</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #4facfe, #00f2fe);
       text-align: center;
-      padding: 50px;
+      padding: 20px;
       color: #fff;
+      margin: 0;
     }
     h1 {
+      margin-bottom: 10px;
+      font-size: 1.8em;
+    }
+    p {
+      font-size: 1em;
       margin-bottom: 20px;
+    }
+    .input-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     input {
       padding: 10px;
       border: none;
       border-radius: 8px;
-      width: 250px;
+      width: 70%;
+      max-width: 300px;
       outline: none;
+      font-size: 1em;
     }
     button {
-      padding: 10px 20px;
-      margin-left: 10px;
+      padding: 10px 15px;
       border: none;
       border-radius: 8px;
       background: #fff;
@@ -31,6 +45,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s;
+      font-size: 0.9em;
     }
     button:hover {
       background: #e0e0e0;
@@ -54,9 +69,13 @@
     }
     #result {
       margin-top: 20px;
-      max-width: 300px;
+      max-width: 100%;
       border-radius: 12px;
       box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+      display: none;
+    }
+    #downloadBtn {
+      margin-top: 15px;
       display: none;
     }
   </style>
@@ -65,8 +84,10 @@
   <h1>🎨 IQC Maker</h1>
   <p>Bikin gambar keren cuma dengan teks 🔥</p>
 
-  <input type="text" id="inputText" placeholder="Tulis teks di sini...">
-  <button onclick="generate()">Generate</button>
+  <div class="input-container">
+    <input type="text" id="inputText" placeholder="Tulis teks di sini...">
+    <button onclick="generate()">Generate</button>
+  </div>
 
   <div id="loading">
     <div class="spinner"></div>
@@ -74,6 +95,10 @@
   </div>
 
   <img id="result">
+  <br>
+  <a id="downloadBtn" download="iqc.png">
+    <button>Download</button>
+  </a>
   
   <script src="script.js"></script>
 </body>
