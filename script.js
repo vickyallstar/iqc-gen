@@ -8,8 +8,8 @@ function generate() {
     alert("Isi teks dulu bro 😅");
     return;
   }
-  if (text.length > 35) {
-    alert("Teks maksimal 35 karakter ya bro 🙏");
+  if (text.length > 100) {
+    alert("Teks maksimal 100 karakter ya bro 🙏");
     return;
   }
 
@@ -25,8 +25,9 @@ function generate() {
       loading.style.display = "none";
       img.style.display = "block";
 
-      // Update tombol download
+      // Update tombol download dengan nama file .bin
       downloadBtn.href = img.src;
+      downloadBtn.setAttribute("download", "iqc.bin");
       downloadBtn.style.display = "inline-block";
     };
     img.onerror = () => {
